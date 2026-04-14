@@ -64,8 +64,8 @@ const ReportsPage = () => {
 
   const handleDownloadPdf = () => {
     const doc = new jsPDF();
-    const pageWidth = doc.internal.pageSize.width;
-    const pageHeight = doc.internal.pageSize.height;
+    const pageWidth = (doc as any).internal.pageSize.width;
+    const pageHeight = (doc as any).internal.pageSize.height;
     
     // Header Styling
     doc.setFillColor(30, 41, 59); // Dark Slate
@@ -172,7 +172,7 @@ const ReportsPage = () => {
         // Footer
         doc.setFontSize(7);
         doc.setTextColor(148, 163, 184);
-        const str = `Page ${(doc as any).internal.getNumberOfPages()}`;
+        const str = `Page ${doc.getNumberOfPages()}`;
         doc.text(str, pageWidth - 20, pageHeight - 10);
         doc.text(`Audit generated on ${new Date().toLocaleString()}`, 14, pageHeight - 10);
       }
