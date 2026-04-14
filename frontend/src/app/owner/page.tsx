@@ -224,14 +224,14 @@ const OwnerDashboard = () => {
   return (
     <div className="min-h-screen bg-[#FDFDFF]">
       {/* TOP HEADER */}
-      <header className="px-6 py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <header className="px-6 py-6 md:py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-black text-[#1E293B] tracking-tight">Welcome, {user?.name || 'Captain'}</h1>
-          <p className="text-[#64748B] text-[10px] font-bold uppercase tracking-[0.2em] mt-1">Portfolio Insights & Decision Engine</p>
+          <h1 className="text-xl md:text-2xl font-black text-[#1E293B] tracking-tight">Welcome, {user?.name || 'Captain'}</h1>
+          <p className="text-[#64748B] text-[8px] md:text-[10px] font-bold uppercase tracking-[0.2em] mt-1">Portfolio Insights & Decision Engine</p>
         </div>
         <div className="flex items-center gap-4">
           <HostelSelector />
-          <div className="w-10 h-10 rounded-full bg-[#EEF2FF] flex items-center justify-center text-[#4F46E5] font-black text-sm">
+          <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#EEF2FF] flex items-center justify-center text-[#4F46E5] font-black text-xs md:text-sm">
             {user?.name?.charAt(0) || 'C'}
           </div>
         </div>

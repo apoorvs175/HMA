@@ -89,13 +89,13 @@ const Sidebar = ({ role, hostelName: initialHostelName }: SidebarProps) => {
 
   return (
     <>
-      {/* Mobile Toggle Button - Integrated into header flow */}
-      <div className="lg:hidden fixed top-4 left-4 z-[70] flex items-center gap-3">
+      {/* Mobile Toggle Button - Refined for professional look */}
+      <div className="lg:hidden fixed top-6 left-6 z-[70]">
         <button
           onClick={toggleSidebar}
-          className="p-2.5 bg-slate-900 text-white rounded-xl shadow-xl border border-slate-800 hover:bg-slate-800 transition-all active:scale-95 flex items-center justify-center"
+          className="p-3 bg-slate-900 text-white rounded-2xl shadow-2xl border border-slate-800 hover:bg-slate-800 transition-all active:scale-95 flex items-center justify-center group/toggle"
         >
-          {isOpen ? <X size={20} /> : <Menu size={20} />}
+          {isOpen ? <X size={22} /> : <Menu size={22} className="group-hover/toggle:scale-110 transition-transform" />}
         </button>
       </div>
 

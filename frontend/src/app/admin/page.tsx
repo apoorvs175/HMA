@@ -59,10 +59,10 @@ const AdminDashboard = () => {
     <div className="flex bg-slate-50 min-h-screen">
       <Sidebar role="admin" />
       
-      <main className="flex-1 p-8 overflow-y-auto">
-        <header className="flex justify-between items-center mb-8">
+      <main className="flex-1 p-6 md:p-8 pt-24 md:pt-8 overflow-y-auto">
+        <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
           <div>
-            <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">System Overview</h1>
+            <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">System Overview</h1>
             <p className="text-slate-500 mt-1 font-medium">Welcome back, {user?.name || 'Super Admin'}! Here's what's happening today.</p>
           </div>
           <div className="flex items-center gap-3 bg-white p-2 rounded-2xl shadow-sm border border-slate-100">

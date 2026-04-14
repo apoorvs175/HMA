@@ -149,7 +149,7 @@ const WardenDashboard = () => {
   return (
     <div className="flex bg-slate-50 min-h-screen">
       <Sidebar role="warden" hostelName={hostels[0]?.hostel_name} />
-      <main className="flex-1 p-4 md:p-8 overflow-y-auto">
+      <main className="flex-1 p-4 md:p-8 pt-24 md:pt-8 overflow-y-auto">
         <div className="max-w-7xl mx-auto space-y-10 md:space-y-12 pb-20">
           {/* Header section removed as per instructions */}
           
