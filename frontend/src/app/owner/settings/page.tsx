@@ -136,7 +136,7 @@ const SettingsPage = () => {
                     </div>
                     <div>
                       <p className="text-[#94A3B8] text-[8px] font-black uppercase tracking-widest">Total Capacity</p>
-                      <p className="text-sm font-black text-[#1E293B] mt-1">{hostel.calculated_capacity || (hostel.total_rooms * 2)} Seats</p>
+                      <p className="text-sm font-black text-[#1E293B] mt-1">{hostel.calculated_capacity || ((hostel.total_rooms || 0) * 2)} Seats</p>
                     </div>
                   </div>
                 </motion.div>

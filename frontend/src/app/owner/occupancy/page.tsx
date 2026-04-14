@@ -102,7 +102,7 @@ const OccupancyPage = () => {
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
               {filteredHostels.map((hostel, idx) => {
-                const occupancyPercent = Math.round((hostel.occupied_students / (hostel.calculated_capacity || (hostel.total_rooms * 2))) * 100);
+                const occupancyPercent = Math.round((hostel.occupied_students / (hostel.calculated_capacity || ((hostel.total_rooms || 0) * 2))) * 100);
                 return (
                   <motion.div
                     key={hostel.hostel_id}
@@ -168,7 +168,7 @@ const OccupancyPage = () => {
                 {[
                   { label: 'Total Units', value: selectedDrillDown.total_rooms, icon: DoorOpen, color: 'text-[#4F46E5]', bg: 'bg-[#EEF2FF]' },
                   { label: 'Active Residents', value: selectedDrillDown.occupied_students, icon: Users, color: 'text-[#10B981]', bg: 'bg-[#F0FDF4]' },
-                  { label: 'Open Slots', value: (selectedDrillDown.calculated_capacity || (selectedDrillDown.total_rooms * 2)) - selectedDrillDown.occupied_students, icon: LayoutGrid, color: 'text-[#D97706]', bg: 'bg-[#FFFBEB]' },
+                  { label: 'Open Slots', value: (selectedDrillDown.calculated_capacity || ((selectedDrillDown.total_rooms || 0) * 2)) - selectedDrillDown.occupied_students, icon: LayoutGrid, color: 'text-[#D97706]', bg: 'bg-[#FFFBEB]' },
                 ].map((stat, idx) => (
                   <div key={idx} className="bg-white p-6 rounded-3xl border border-[#F1F5F9] shadow-sm flex items-center gap-5">
                     <div className={cn("w-12 h-12 rounded-2xl flex items-center justify-center", stat.bg, stat.color)}>

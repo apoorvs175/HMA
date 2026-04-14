@@ -216,10 +216,10 @@ const HostelDetails = () => {
                         <tr>
                           <td className="p-4 font-bold uppercase tracking-widest text-xs">Grand Total</td>
                           <td className="p-4 text-center font-black text-blue-400">
-                            {matrixData.capacities.reduce((sum, cap) => sum + matrixData.matrix[cap].ac, 0)}
+                            {matrixData.capacities.reduce((sum, cap) => sum + (matrixData.matrix[cap]?.ac || 0), 0)}
                           </td>
                           <td className="p-4 text-center font-black text-slate-300">
-                            {matrixData.capacities.reduce((sum, cap) => sum + matrixData.matrix[cap].non_ac, 0)}
+                            {matrixData.capacities.reduce((sum, cap) => sum + (matrixData.matrix[cap]?.non_ac || 0), 0)}
                           </td>
                           <td className="p-4 text-center font-black text-white text-lg">
                             {hostel.total_rooms}
