@@ -175,8 +175,8 @@ export default function StudentProfilePage() {
   const [exitReason, setExitReason] = useState("");
 
   const getAvailableSecurity = () => {
-    // SECURITY BALANCE is the absolute single source of truth from the student profile
-    return parseFloat(student.security_balance as any || "0");
+    if (!student) return 0;
+    return parseFloat((student as any).security_balance || "0");
   };
 
   const fetchStudentData = useCallback(async () => {
@@ -568,7 +568,7 @@ export default function StudentProfilePage() {
       ],
       theme: 'striped',
       headStyles: { 
-        fillColor: primaryColor, 
+        fillColor: primaryColor as [number, number, number], 
         textColor: [255, 255, 255], 
         fontStyle: 'bold',
         halign: 'center'
@@ -805,7 +805,7 @@ export default function StudentProfilePage() {
                     <div className="grid grid-cols-2 gap-x-4 md:gap-x-8 gap-y-3 md:gap-y-4 text-left">
                       <div>
                         <p className="text-[8px] md:text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1">ROOM SEATER</p>
-                        <p className="text-[11px] md:text-xs font-black text-slate-700">{student.room_capacity ? `${student.room_capacity} Seater` : (student.details?.room_capacity || 'N/A')}</p>
+                        <p className="text-[11px] md:text-xs font-black text-slate-700">{student.room_capacity ? `${student.room_capacity} Seater` : 'N/A'}</p>
                       </div>
                       <div>
                         <p className="text-[8px] md:text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1">CATEGORY</p>
@@ -1402,7 +1402,7 @@ export default function StudentProfilePage() {
                                 )} />
                                 {fee.status.toUpperCase()}
                               </div>
-                              {isPaid && (fee.payment_source === 'ADVANCE_ADJUSTED' || fee.payment_source === 'SECURITY') && (
+                              {isPaid && (fee.payment_source === 'ADVANCE_ADJUSTED') && (
                                 <span className="text-[7px] font-black uppercase px-1.5 py-0.5 rounded border tracking-tighter bg-indigo-50 text-indigo-600 border-indigo-100">
                                   Advance Adjusted
                                 </span>

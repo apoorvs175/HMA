@@ -350,7 +350,7 @@ Warden, ${hostelName}`;
       if (categoryFilter === 'overdue') matchesCategory = status === 'overdue';
       else if (categoryFilter === 'upcoming') matchesCategory = status === 'upcoming';
       else if (categoryFilter === 'paid') matchesCategory = status === 'paid';
-      else if (categoryFilter === 'pending') matchesCategory = (status === 'pending' || status === 'partial' || status === 'overdue' || status === 'due_today' || status === 'upcoming') && status !== 'paid';
+      else if (categoryFilter === 'pending') matchesCategory = status === 'pending' || status === 'partial' || status === 'overdue' || status === 'due_today' || status === 'upcoming';
 
       return matchesSearch && matchesCategory;
     });

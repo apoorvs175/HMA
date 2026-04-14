@@ -148,8 +148,8 @@ const ReportsPage = () => {
       body: body,
       theme: 'striped',
       headStyles: { 
-        fillColor: [30, 41, 59], 
-        textColor: [255, 255, 255], 
+        fillColor: [30, 41, 59] as [number, number, number], 
+        textColor: [255, 255, 255] as [number, number, number], 
         fontSize: 7,
         fontStyle: 'bold',
         cellPadding: 4,
@@ -159,14 +159,14 @@ const ReportsPage = () => {
         fontSize: 7, 
         cellPadding: 4, 
         font: 'helvetica',
-        textColor: [71, 85, 105],
-        lineColor: [241, 245, 249],
+        textColor: [71, 85, 105] as [number, number, number],
+        lineColor: [241, 245, 249] as [number, number, number],
         lineWidth: 0.1
       },
       columnStyles: {
-        4: { fontStyle: 'bold', textColor: [30, 41, 59], halign: 'right' } // Amount column
+        4: { fontStyle: 'bold', textColor: [30, 41, 59] as [number, number, number], halign: 'right' } // Amount column
       },
-      alternateRowStyles: { fillColor: [250, 250, 250] },
+      alternateRowStyles: { fillColor: [250, 250, 250] as [number, number, number] },
       margin: { left: 14, right: 14 },
       didDrawPage: (data) => {
         // Footer
