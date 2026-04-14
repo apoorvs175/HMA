@@ -74,69 +74,69 @@ const SettingsPage = () => {
   return (
     <div className="min-h-screen bg-[#FDFDFF]">
       {/* HEADER */}
-      <header className="px-6 py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <header className="px-4 md:px-6 py-6 md:py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-black text-[#1E293B] tracking-tight">Portfolio Settings</h1>
-          <p className="text-[#64748B] text-[10px] font-bold uppercase tracking-[0.2em] mt-1">Configure Units & Assignments</p>
+          <h1 className="text-xl md:text-2xl font-black text-[#1E293B] tracking-tight">Portfolio Settings</h1>
+          <p className="text-[#64748B] text-[8px] md:text-[10px] font-bold uppercase tracking-[0.2em] mt-1">Configure Units & Assignments</p>
         </div>
         <div className="flex items-center gap-4">
           <HostelSelector />
-          <div className="w-10 h-10 rounded-full bg-[#EEF2FF] flex items-center justify-center text-[#4F46E5] font-black text-sm">
+          <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#EEF2FF] flex items-center justify-center text-[#4F46E5] font-black text-xs md:text-sm">
             {user?.name?.charAt(0) || 'C'}
           </div>
         </div>
       </header>
 
-      <div className="px-6 pb-24 space-y-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div className="px-4 md:px-6 pb-24 space-y-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
           {/* LEFT COLUMN: HOSTEL LIST */}
           <div className="lg:col-span-8 space-y-6">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <Building2 size={20} className="text-[#4F46E5]" />
-                <h2 className="text-xs font-black text-[#1E293B] uppercase tracking-widest">Active Portfolio</h2>
+                <Building2 size={18} className="text-[#4F46E5]" />
+                <h2 className="text-[10px] md:text-xs font-black text-[#1E293B] uppercase tracking-widest">Active Portfolio</h2>
               </div>
               <button 
                 onClick={() => setShowAddHostel(true)}
-                className="bg-[#4F46E5] hover:bg-[#4338CA] text-white rounded-2xl px-5 py-2.5 text-[10px] font-black uppercase tracking-widest shadow-lg shadow-indigo-100 transition-all flex items-center gap-2"
+                className="bg-[#4F46E5] hover:bg-[#4338CA] text-white rounded-xl md:rounded-2xl px-3 md:px-5 py-2 md:py-2.5 text-[9px] md:text-[10px] font-black uppercase tracking-widest shadow-lg shadow-indigo-100 transition-all flex items-center gap-2"
               >
-                <Plus size={14} />
-                Add Hostel
+                <Plus size={12} />
+                <span className="hidden sm:inline">Add Hostel</span>
               </button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               {hostels.map((hostel, idx) => (
                 <motion.div
                   key={hostel.hostel_id}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.1 }}
-                  className="bg-white p-8 rounded-[2.5rem] border border-[#F1F5F9] shadow-sm group hover:shadow-md transition-all"
+                  className="bg-white p-5 md:p-8 rounded-2xl md:rounded-[2.5rem] border border-[#F1F5F9] shadow-sm group hover:shadow-md transition-all"
                 >
-                  <div className="flex justify-between items-start mb-8">
-                    <div className="w-12 h-12 rounded-2xl bg-[#F8FAFC] flex items-center justify-center border border-[#F1F5F9] group-hover:bg-[#EEF2FF] group-hover:border-[#E0E7FF] transition-all">
-                      <Building2 className="text-[#94A3B8] group-hover:text-[#4F46E5]" size={24} />
+                  <div className="flex justify-between items-start mb-6 md:mb-8">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-[#F8FAFC] flex items-center justify-center border border-[#F1F5F9] group-hover:bg-[#EEF2FF] group-hover:border-[#E0E7FF] transition-all">
+                      <Building2 className="text-[#94A3B8] group-hover:text-[#4F46E5]" size={20} />
                     </div>
-                    <button className="p-2 text-[#94A3B8] hover:text-[#4F46E5] hover:bg-[#F8FAFC] rounded-xl transition-all">
-                      <Settings size={16} />
+                    <button className="p-1.5 md:p-2 text-[#94A3B8] hover:text-[#4F46E5] hover:bg-[#F8FAFC] rounded-lg md:rounded-xl transition-all">
+                      <Settings size={14} />
                     </button>
                   </div>
 
-                  <h3 className="text-lg font-black text-[#1E293B] tracking-tight">{hostel.hostel_name}</h3>
-                  <div className="flex items-center gap-2 text-[#94A3B8] mt-1 mb-8">
-                    <MapPin size={12} />
-                    <span className="text-[10px] font-bold uppercase tracking-widest truncate">{hostel.address}</span>
+                  <h3 className="text-base md:text-lg font-black text-[#1E293B] tracking-tight">{hostel.hostel_name}</h3>
+                  <div className="flex items-center gap-2 text-[#94A3B8] mt-1 mb-6 md:mb-8">
+                    <MapPin size={10} />
+                    <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest truncate">{hostel.address}</span>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-6 pt-8 border-t border-[#F8FAFC]">
+                  <div className="grid grid-cols-2 gap-4 md:gap-6 pt-6 md:pt-8 border-t border-[#F8FAFC]">
                     <div>
-                      <p className="text-[#94A3B8] text-[8px] font-black uppercase tracking-widest">Warden Assigned</p>
-                      <p className="text-[10px] font-black text-[#1E293B] mt-1 uppercase truncate">{availableWardens.find(w => w.hostel_name === hostel.hostel_name)?.warden_name || 'Not Assigned'}</p>
+                      <p className="text-[#94A3B8] text-[7px] md:text-[8px] font-black uppercase tracking-widest">Warden</p>
+                      <p className="text-[9px] md:text-[10px] font-black text-[#1E293B] mt-1 uppercase truncate">{availableWardens.find(w => w.hostel_name === hostel.hostel_name)?.warden_name || 'Not Assigned'}</p>
                     </div>
                     <div>
-                      <p className="text-[#94A3B8] text-[8px] font-black uppercase tracking-widest">Total Capacity</p>
-                      <p className="text-sm font-black text-[#1E293B] mt-1">{hostel.calculated_capacity || ((hostel.total_rooms || 0) * 2)} Seats</p>
+                      <p className="text-[#94A3B8] text-[7px] md:text-[8px] font-black uppercase tracking-widest">Capacity</p>
+                      <p className="text-xs md:text-sm font-black text-[#1E293B] mt-1">{hostel.calculated_capacity || ((hostel.total_rooms || 0) * 2)} Seats</p>
                     </div>
                   </div>
                 </motion.div>
@@ -145,13 +145,13 @@ const SettingsPage = () => {
           </div>
 
           {/* RIGHT COLUMN: PERMISSIONS */}
-          <div className="lg:col-span-4 space-y-8">
-            <div className="bg-white p-8 rounded-[2.5rem] border border-[#F1F5F9] shadow-sm">
-              <div className="flex items-center gap-3 mb-8">
-                <ShieldCheck className="text-[#4F46E5]" size={20} />
-                <h2 className="text-xs font-black text-[#1E293B] uppercase tracking-widest">Captain Permissions</h2>
+          <div className="lg:col-span-4 space-y-6 md:space-y-8">
+            <div className="bg-white p-5 md:p-8 rounded-2xl md:rounded-[2.5rem] border border-[#F1F5F9] shadow-sm">
+              <div className="flex items-center gap-3 mb-6 md:mb-8">
+                <ShieldCheck className="text-[#4F46E5]" size={18} />
+                <h2 className="text-[10px] md:text-xs font-black text-[#1E293B] uppercase tracking-widest">Captain Permissions</h2>
               </div>
-              <div className="space-y-4">
+              <div className="space-y-3 md:space-y-4">
                 {[
                   { label: 'View Analytics', status: true },
                   { label: 'Enter Expenses', status: true },
@@ -160,30 +160,30 @@ const SettingsPage = () => {
                   { label: 'Change Fees', status: false },
                   { label: 'Bulk Student SMS', status: false },
                 ].map((perm, idx) => (
-                  <div key={idx} className="flex items-center justify-between p-4 rounded-2xl bg-[#F8FAFC]">
-                    <span className="text-[10px] font-bold text-[#475569] uppercase tracking-widest">{perm.label}</span>
+                  <div key={idx} className="flex items-center justify-between p-3 md:p-4 rounded-xl md:rounded-2xl bg-[#F8FAFC]">
+                    <span className="text-[9px] md:text-[10px] font-bold text-[#475569] uppercase tracking-widest">{perm.label}</span>
                     <div className={cn(
-                      "w-5 h-5 rounded-full flex items-center justify-center",
+                      "w-4 h-4 md:w-5 md:h-5 rounded-full flex items-center justify-center",
                       perm.status ? "bg-[#DCFCE7] text-[#10B981]" : "bg-[#F1F5F9] text-[#94A3B8]"
                     )}>
-                      {perm.status ? <CheckCircle2 size={12} /> : <X size={10} />}
+                      {perm.status ? <CheckCircle2 size={10} /> : <X size={8} />}
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="bg-[#4F46E5] p-8 rounded-[2.5rem] shadow-xl shadow-indigo-100 text-white text-center space-y-6">
-              <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mx-auto">
-                <UserCog size={24} />
+            <div className="bg-[#4F46E5] p-6 md:p-8 rounded-2xl md:rounded-[2.5rem] shadow-xl shadow-indigo-100 text-white text-center space-y-4 md:space-y-6">
+              <div className="w-10 h-10 md:w-12 md:h-12 bg-white/20 rounded-xl md:rounded-2xl flex items-center justify-center mx-auto">
+                <UserCog size={20} />
               </div>
               <div className="space-y-2">
-                <h2 className="text-lg font-black tracking-tight">Need Support?</h2>
-                <p className="text-[#E0E7FF] text-[10px] font-bold leading-relaxed uppercase tracking-widest opacity-80 px-4">
+                <h2 className="text-base md:text-lg font-black tracking-tight">Need Support?</h2>
+                <p className="text-[#E0E7FF] text-[9px] md:text-[10px] font-bold leading-relaxed uppercase tracking-widest opacity-80 px-2 md:px-4">
                   Captain, for core business changes like fee structures, please contact the admin.
                 </p>
               </div>
-              <button className="w-full bg-white/10 hover:bg-white/20 py-4 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all">
+              <button className="w-full bg-white/10 hover:bg-white/20 py-3 md:py-4 rounded-xl md:rounded-2xl text-[9px] md:text-[10px] font-black uppercase tracking-widest transition-all">
                 Contact Admin
               </button>
             </div>
