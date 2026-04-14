@@ -417,8 +417,8 @@ export default function StudentProfilePage() {
     
     const doc = new jsPDF();
     const pageWidth = (doc as any).internal.pageSize.width;
-    const primaryColor = [26, 35, 126]; // Dark Blue
-    const accentColor = [63, 81, 181]; // Indigo
+    const primaryColor: [number, number, number] = [26, 35, 126]; // Dark Blue
+    const accentColor: [number, number, number] = [63, 81, 181]; // Indigo
     
     // Helper: Currency Formatter
     const formatCurrency = (val: any) => {
@@ -568,7 +568,7 @@ export default function StudentProfilePage() {
       ],
       theme: 'striped',
       headStyles: { 
-        fillColor: primaryColor as [number, number, number], 
+        fillColor: primaryColor, 
         textColor: [255, 255, 255], 
         fontStyle: 'bold',
         halign: 'center'

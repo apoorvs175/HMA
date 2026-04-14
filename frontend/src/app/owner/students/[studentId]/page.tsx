@@ -223,8 +223,8 @@ export default function StudentLedgerPage() {
     if (!student) return;
     const doc = new jsPDF();
     const pageWidth = (doc as any).internal.pageSize.width;
-    const primaryColor = [26, 35, 126];
-    const accentColor = [63, 81, 181];
+    const primaryColor: [number, number, number] = [26, 35, 126];
+    const accentColor: [number, number, number] = [63, 81, 181];
     const formatCurrency = (val: any) => `INR ${parseFloat(val || "0").toLocaleString('en-IN')}`;
 
     doc.setFillColor(primaryColor[0], primaryColor[1], primaryColor[2]);
@@ -326,7 +326,7 @@ export default function StudentLedgerPage() {
       head: [['Sr', 'Description', 'Due Date', 'Plan Amount', 'Adjustment', 'Paid', 'Date', 'Method', 'Status']],
       body: [['1', isOverpayment ? 'OVERPAYMENT CREDIT' : (fee.installment_name || fee.month || 'Fee Entry'), new Date(fee.due_date).toLocaleDateString('en-GB'), isOverpayment ? '—' : formatCurrency(fee.amount), securityAdjustment !== 0 ? formatCurrency(securityAdjustment) : '—', formatCurrency(fee.paid_amount), fee.payment_date ? new Date(fee.due_date).toLocaleDateString('en-GB') : '—', fee.payment_method || '—', isOverpayment ? 'CREDITED' : displayStatus]],
       theme: 'striped',
-      headStyles: { fillColor: primaryColor as [number, number, number], textColor: [255, 255, 255], fontStyle: 'bold', halign: 'center' },
+      headStyles: { fillColor: primaryColor, textColor: [255, 255, 255], fontStyle: 'bold', halign: 'center' },
       columnStyles: { 3: { halign: 'right' }, 4: { halign: 'right' }, 5: { halign: 'right' }, 0: { halign: 'center' }, 8: { halign: 'center' } },
       styles: { fontSize: 8, cellPadding: 4 }
     });
