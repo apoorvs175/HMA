@@ -93,7 +93,7 @@ const StudentsPage = () => {
               <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Owner</p>
             </div>
             <div className="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white shadow-lg shadow-indigo-600/20">
-              <User size={18} md:size={20} />
+              <User size={20} />
             </div>
           </div>
         </div>
@@ -130,7 +130,7 @@ const StudentsPage = () => {
           
           <div className="flex items-center gap-3 w-full sm:w-auto">
             <div className="flex items-center justify-center gap-2 bg-indigo-50 px-4 md:px-5 py-2 md:py-2.5 rounded-xl md:rounded-2xl border border-indigo-100/50 w-full sm:w-auto">
-              <Users size={16} md:size={18} className="text-indigo-600" />
+              <Users size={18} className="text-indigo-600" />
               <span className="text-sm font-black text-indigo-900">{filteredStudents.length} Students</span>
             </div>
           </div>
@@ -140,7 +140,7 @@ const StudentsPage = () => {
         {filteredStudents.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 md:py-32 text-center bg-white rounded-2xl md:rounded-[40px] border-2 border-dashed border-slate-100 shadow-sm">
             <div className="w-16 h-16 md:w-24 md:h-24 bg-slate-50 rounded-full flex items-center justify-center mb-6 shadow-inner">
-              <Users size={32} md:size={48} className="text-slate-200" />
+              <Users size={48} className="text-slate-200" />
             </div>
             <p className="text-slate-500 font-black uppercase tracking-[0.2em] text-[10px] md:text-xs">No Residents Found</p>
             <p className="text-slate-400 font-medium mt-2 max-w-xs mx-auto text-xs md:text-sm">Try adjusting your filters or search terms.</p>
@@ -165,7 +165,7 @@ const StudentsPage = () => {
                     <div className="flex items-start justify-between mb-6 md:mb-8">
                       <div className="flex items-center gap-4 md:gap-5">
                         <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-[20px] bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-indigo-50 group-hover:text-indigo-600 transition-all duration-500 shadow-inner border border-white">
-                          <User size={24} md:size={32} strokeWidth={1.5} />
+                          <User size={32} strokeWidth={1.5} />
                         </div>
                         <div className="space-y-1">
                           <h3 className="font-black text-slate-800 text-lg md:text-xl tracking-tight group-hover:text-indigo-800 transition-colors truncate capitalize max-w-[150px] md:max-w-none">
@@ -193,7 +193,7 @@ const StudentsPage = () => {
                     <div className="grid grid-cols-2 gap-4 md:gap-8 mb-6 md:mb-8">
                       <div className="space-y-2 md:space-y-3">
                         <div className="flex items-center gap-2 text-slate-400">
-                          <Building2 size={12} md:size={14} strokeWidth={2.5} />
+                          <Building2 size={14} strokeWidth={2.5} />
                           <span className="text-[8px] md:text-[9px] font-black uppercase tracking-[0.2em]">Hostel</span>
                         </div>
                         <div className="space-y-0.5">
@@ -204,7 +204,7 @@ const StudentsPage = () => {
                       </div>
                       <div className="space-y-2 md:space-y-3 pl-4 md:pl-8 border-l border-slate-100">
                         <div className="flex items-center gap-2 text-slate-400">
-                          <Home size={12} md:size={14} strokeWidth={2.5} />
+                          <Home size={14} strokeWidth={2.5} />
                           <span className="text-[8px] md:text-[9px] font-black uppercase tracking-[0.2em]">Room</span>
                         </div>
                         <div className="space-y-1">
@@ -229,14 +229,14 @@ const StudentsPage = () => {
 
                   {/* Footer Action */}
                   <Link 
-                    href={`/owner/students/${student.student_id}`}
-                    className="px-6 md:px-8 py-4 md:py-5 border-t border-slate-50 bg-slate-50/30 group-hover:bg-indigo-50/50 transition-colors duration-500 flex items-center justify-between cursor-pointer"
-                  >
-                    <span className="text-[8px] md:text-[10px] font-black text-slate-400 uppercase tracking-widest group-hover:text-indigo-600 transition-colors">Financial Ledger</span>
-                    <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white shadow-sm flex items-center justify-center text-slate-400 group-hover:text-indigo-500 group-hover:translate-x-1 transition-all duration-500">
-                      <ArrowRight size={14} md:size={16} strokeWidth={2.5} />
-                    </div>
-                  </Link>
+                      href={`/owner/students/${student.student_id}`}
+                      className="px-6 md:px-8 py-4 md:py-5 border-t border-slate-50 bg-slate-50/30 group-hover:bg-indigo-50/50 transition-colors duration-500 flex items-center justify-between cursor-pointer"
+                    >
+                      <span className="text-[8px] md:text-[10px] font-black text-slate-400 uppercase tracking-widest group-hover:text-indigo-600 transition-colors">Financial Ledger</span>
+                      <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white shadow-sm flex items-center justify-center text-slate-400 group-hover:text-indigo-500 group-hover:translate-x-1 transition-all duration-500">
+                        <ArrowRight size={16} strokeWidth={2.5} />
+                      </div>
+                    </Link>
                 </motion.div>
               ))}
             </AnimatePresence>

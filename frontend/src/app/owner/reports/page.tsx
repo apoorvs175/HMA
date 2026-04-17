@@ -207,7 +207,7 @@ const ReportsPage = () => {
           className="bg-white p-6 md:p-10 rounded-2xl md:rounded-[3rem] border border-[#F1F5F9] shadow-sm"
         >
           <div className="flex items-center gap-3 mb-6 md:mb-10">
-            <Filter className="text-[#4F46E5]" size={18} md:size={20} />
+            <Filter className="text-[#4F46E5]" size={20} />
             <h2 className="text-[10px] md:text-xs font-black text-[#1E293B] uppercase tracking-widest">Report Configuration</h2>
           </div>
 
@@ -297,7 +297,7 @@ const ReportsPage = () => {
             >
               <div className="p-6 md:p-8 border-b border-[#F1F5F9] flex items-center justify-between bg-[#F8FAFC]">
                 <div className="flex items-center gap-3">
-                  <TableIcon className="text-[#4F46E5]" size={16} md:size={18} />
+                  <TableIcon className="text-[#4F46E5]" size={18} />
                   <h2 className="text-[10px] md:text-xs font-black text-[#1E293B] uppercase tracking-widest">Previewing {reportData.length} Entries</h2>
                 </div>
               </div>
@@ -365,7 +365,7 @@ const ReportsPage = () => {
               className="bg-white p-12 md:p-24 rounded-2xl md:rounded-[3rem] border border-dashed border-[#E2E8F0] flex flex-col items-center justify-center text-center"
             >
               <div className="w-16 h-16 md:w-20 md:h-20 bg-[#F8FAFC] rounded-full flex items-center justify-center mb-6 md:mb-8 border border-[#F1F5F9]">
-                <FileText size={28} md:size={32} className="text-[#CBD5E1]" />
+                <FileText size={32} className="text-[#CBD5E1]" />
               </div>
               <h3 className="text-base md:text-lg font-black text-[#1E293B] tracking-tight">No data available</h3>
               <p className="text-[#94A3B8] text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] mt-3 max-w-xs">

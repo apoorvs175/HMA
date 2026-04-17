@@ -336,7 +336,7 @@ const OwnerDashboard = () => {
             <section className="bg-white border border-[#F1F5F9] p-5 md:p-8 rounded-2xl md:rounded-[2.5rem] shadow-sm space-y-6">
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 md:w-12 md:h-12 bg-[#FEF2F2] rounded-xl md:rounded-2xl flex items-center justify-center text-[#EF4444] shrink-0">
-                  <AlertCircle size={20} md:size={24} />
+                  <AlertCircle size={20} />
                 </div>
                 <div>
                   <h3 className="text-base md:text-lg font-black text-[#1E293B] tracking-tight truncate max-w-[150px] md:max-w-none">₹{data?.pending?.total?.toLocaleString() || '0'} Outstanding</h3>
@@ -380,7 +380,7 @@ const OwnerDashboard = () => {
               <div className="text-center space-y-4">
                 <h3 className="text-[10px] font-black text-[#94A3B8] uppercase tracking-[0.2em]">Security Reserves</h3>
                 <div className="w-10 h-10 md:w-12 md:h-12 bg-[#F5F3FF] rounded-xl md:rounded-2xl flex items-center justify-center text-[#7C3AED] mx-auto shadow-sm">
-                  <Wallet size={20} md:size={24} />
+                  <Wallet size={20} />
                 </div>
                 <div className="grid grid-cols-2 gap-3 md:gap-4">
                   <div className="text-center p-3 md:p-4 rounded-xl md:rounded-2xl bg-[#F8FAFC] border border-[#F1F5F9]">

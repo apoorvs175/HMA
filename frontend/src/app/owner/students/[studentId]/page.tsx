@@ -542,7 +542,7 @@ export default function StudentLedgerPage() {
                   </div>
                   <div className="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-6 md:gap-4">
                     <div className="flex items-center gap-4 w-full sm:w-auto">
-                      <div className="w-12 h-12 md:w-14 md:h-14 bg-indigo-50 text-indigo-600 rounded-xl md:rounded-2xl flex items-center justify-center border border-indigo-100 shadow-sm shrink-0"><ShieldCheck size={24} md:size={28} /></div>
+                      <div className="w-12 h-12 md:w-14 md:h-14 bg-indigo-50 text-indigo-600 rounded-xl md:rounded-2xl flex items-center justify-center border border-indigo-100 shadow-sm shrink-0"><ShieldCheck size={28} /></div>
                       <div><p className="text-[8px] md:text-[10px] font-black text-slate-400 uppercase tracking-widest mb-0.5">SECURITY DEPOSIT</p><p className="text-xl md:text-2xl font-black text-slate-900 tracking-tighter">₹{parseFloat(student.security_deposit as any || "0").toLocaleString()}</p></div>
                     </div>
                     {student.payment_model === '2 + 1 System' && (
