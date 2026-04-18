@@ -170,54 +170,57 @@ const WardenDashboard = () => {
                       { id: 'available', label: 'Occupancy Rate', value: `${hostel.stats?.occupancyRate || 0}%`, color: 'text-emerald-600', icon: CheckCircle2, bg: 'bg-emerald-50', border: 'border-emerald-100', accent: 'bg-emerald-500', shadow: 'shadow-emerald-200/40', glow: 'group-hover:shadow-emerald-500/20' },
                       { id: 'revenue', label: 'Pending Fees', value: `₹${Math.floor(hostel.stats?.pendingFees || 0).toLocaleString()}`, color: 'text-indigo-600', icon: TrendingUp, bg: 'bg-indigo-50', border: 'border-indigo-100', accent: 'bg-indigo-500', shadow: 'shadow-indigo-200/40', glow: 'group-hover:shadow-indigo-500/20' },
                       { id: 'overdue', label: 'Overdue Accounts', value: financeStats[hostel.hostel_id]?.overdueCount || 0, color: 'text-rose-600', icon: AlertCircle, bg: 'bg-rose-50', border: 'border-rose-100', accent: 'bg-rose-500', shadow: 'shadow-rose-200/40', glow: 'group-hover:shadow-rose-500/20' },
-                    ].map((card) => (
-                      <div
-                        key={card.id}
-                        className={cn(
-                          "relative p-8 rounded-[40px] border transition-all duration-700 group overflow-hidden text-left bg-white border-slate-100 hover:border-indigo-200 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] hover:-translate-y-2"
-                        )}
-                      >
-                        {/* Interactive Background Glow */}
-                        <div className="absolute -top-24 -right-24 w-48 h-48 bg-slate-50 rounded-full blur-3xl group-hover:bg-indigo-50 transition-colors duration-700" />
-                        
-                        <div className="relative flex flex-col h-full space-y-8">
-                          <div className={cn(
-                            "w-16 h-16 rounded-[24px] flex items-center justify-center transition-all duration-700 relative",
-                            "bg-slate-50/50 shadow-[inset_0_2px_8px_rgba(255,255,255,0.8)] group-hover:bg-white group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-indigo-500/10",
-                            card.border
-                          )}>
-                            <card.icon size={28} strokeWidth={2.5} className={cn("relative transition-all duration-700", card.color)} />
-                          </div>
+                    ].map((card) => {
+                      const displayValue = card.value !== undefined && card.value !== null ? card.value : '0';
+                      return (
+                        <div
+                          key={card.id}
+                          className={cn(
+                            "relative p-8 rounded-[40px] border transition-all duration-700 group overflow-hidden text-left bg-white border-slate-100 hover:border-indigo-200 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] hover:-translate-y-2"
+                          )}
+                        >
+                          {/* Interactive Background Glow */}
+                          <div className="absolute -top-24 -right-24 w-48 h-48 bg-slate-50 rounded-full blur-3xl group-hover:bg-indigo-50 transition-colors duration-700" />
                           
-                          <div className="space-y-4">
-                            <div>
-                              <p className="text-[11px] font-black text-slate-400 uppercase tracking-[0.25em] leading-none mb-3 group-hover:text-indigo-400 transition-colors">{card.label}</p>
-                              <h3 className={cn(
-                                "font-black tracking-tighter transition-all duration-500 leading-none text-slate-900",
-                                card.id === 'revenue' ? "text-2xl" : "text-4xl"
-                              )}>
-                                {card.id === 'students' && typeof card.value === 'string' && card.value.includes('/') ? (
-                                  <>
-                                    {card.value.split('/')[0]}
-                                    <span className="text-slate-300 ml-1">/ {card.value.split('/')[1]}</span>
-                                  </>
-                                ) : card.value}
-                              </h3>
+                          <div className="relative flex flex-col h-full space-y-8">
+                            <div className={cn(
+                              "w-16 h-16 rounded-[24px] flex items-center justify-center transition-all duration-700 relative",
+                              "bg-slate-50/50 shadow-[inset_0_2px_8px_rgba(255,255,255,0.8)] group-hover:bg-white group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-indigo-500/10",
+                              card.border
+                            )}>
+                              <card.icon size={28} strokeWidth={2.5} className={cn("relative transition-all duration-700", card.color)} />
                             </div>
                             
-                            <div className="pt-2">
-                              <div className="flex justify-between items-center mb-2">
-                                <span className="text-[9px] font-black uppercase tracking-widest text-slate-300">Performance</span>
-                                <ArrowUpRight size={14} className="text-slate-200 group-hover:text-indigo-400 transition-all duration-500" />
+                            <div className="space-y-4">
+                              <div>
+                                <p className="text-[11px] font-black text-slate-400 uppercase tracking-[0.25em] leading-none mb-3 group-hover:text-indigo-400 transition-colors">{card.label}</p>
+                                <h3 className={cn(
+                                  "font-black tracking-tighter transition-all duration-500 leading-none text-slate-900",
+                                  card.id === 'revenue' ? "text-2xl" : "text-4xl"
+                                )}>
+                                  {card.id === 'students' && typeof displayValue === 'string' && displayValue.includes('/') ? (
+                                    <>
+                                      {displayValue.split('/')[0]}
+                                      <span className="text-slate-300 ml-1">/ {displayValue.split('/')[1]}</span>
+                                    </>
+                                  ) : displayValue}
+                                </h3>
                               </div>
-                              <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden relative">
-                                <div className={cn("absolute inset-y-0 left-0 rounded-full transition-all duration-1000 ease-out w-0 group-hover:w-full", card.accent)} />
+                              
+                              <div className="pt-2">
+                                <div className="flex justify-between items-center mb-2">
+                                  <span className="text-[9px] font-black uppercase tracking-widest text-slate-300">Performance</span>
+                                  <ArrowUpRight size={14} className="text-slate-200 group-hover:text-indigo-400 transition-all duration-500" />
+                                </div>
+                                <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden relative">
+                                  <div className={cn("absolute inset-y-0 left-0 rounded-full transition-all duration-1000 ease-out w-0 group-hover:w-full", card.accent)} />
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
 
                   <div className="space-y-8 md:space-y-12">
